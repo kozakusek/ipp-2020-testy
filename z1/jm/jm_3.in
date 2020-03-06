@@ -1,3 +1,4 @@
+#tiny sample of randomly distributed data test; doesn't test for non-basic error scenarios
 ADD
 ADD	 	 e#45Q%O+rT
 ADD  wp<?PH
@@ -21,7 +22,16 @@ ADD		 e#45Q%O+rT		 BZB)YL)R		 oNMn+6l8
 ADD				e#45Q%O+rT				Om7HC				9l4SF%noF
 ADD 		wp<?PH 		%a)PZY` 		:JvnabC
 ADD    		 e#45Q%O+rT    		 oTE3d    		 +lMud;
-ADD   	 			e#45Q%O+rT   	 			+M+r`Os'Nq   	 			oQli3':
+ADD  
+
+ 	 	
+		e#45Q%O+rT  
+
+ 	 	
+		+M+r`Os'Nq  
+
+ 	 	
+		oQli3':
 ADD			  e#45Q%O+rT			  oTE3d			  WwmFf>
 ADD e#45Q%O+rT d]:S.m%; #&mRk3iG
 ADD	e#45Q%O+rT	oTE3d	dHu)u0^=!
@@ -56,11 +66,27 @@ PRINT				 	 e#45Q%O+rT				 	 Om7HC
 CHECK  e#45Q%O+rT  d]:S.m%;  #&mRk3iG
 DEL	e#45Q%O+rT	d]:S.m%;	#&mRk3iG
 CHECK				e#45Q%O+rT				d]:S.m%;				#&mRk3iG
-PRINT    	e#45Q%O+rT    	d]:S.m%;
+PRINT
+    
+	
+e#45Q%O+rT
+    
+	
+d]:S.m%;
 CHECK	 	e#45Q%O+rT	 	CiWk#luT*u0	 	,pLF"NX$1s
 DEL 	 	e#45Q%O+rT 	 	CiWk#luT*u0 	 	,pLF"NX$1s
 CHECK  	 	 e#45Q%O+rT  	 	 CiWk#luT*u0  	 	 ,pLF"NX$1s
-PRINT 	 e#45Q%O+rT 	 CiWk#luT*u0
+PRINT
+ 	
+
+ 
+
+e#45Q%O+rT
+ 	
+
+ 
+
+CiWk#luT*u0
 CHECK	 e#45Q%O+rT	 BZB)YL)R	 oNMn+6l8
 DEL		e#45Q%O+rT		BZB)YL)R		oNMn+6l8
 CHECK e#45Q%O+rT BZB)YL)R oNMn+6l8
@@ -70,13 +96,19 @@ DEL  		e#45Q%O+rT  		Om7HC  		`.fDQ
 CHECK 	e#45Q%O+rT 	Om7HC 	`.fDQ
 PRINT   	e#45Q%O+rT   	Om7HC
 CHECK 	 	   e#45Q%O+rT 	 	   oTE3d
-DEL 	e#45Q%O+rT 	oTE3d
+DEL
+ 	e#45Q%O+rT
+ 	oTE3d
 CHECK		e#45Q%O+rT		oTE3d
 PRINT    	  e#45Q%O+rT
 CHECK					e#45Q%O+rT					Om7HC
 DEL e#45Q%O+rT Om7HC
 CHECK   	e#45Q%O+rT   	Om7HC
-PRINT		 	e#45Q%O+rT
+PRINT		 
+
+	
+
+e#45Q%O+rT
 PRINT
 DEL
 PRINT

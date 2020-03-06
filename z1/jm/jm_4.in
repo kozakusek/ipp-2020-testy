@@ -1,3 +1,5 @@
+#tiny sample of randomly distributed data test; doesn't test for non-basic error scenarios
+#only one-space-wide spacing used
 ADD
 ADD T-jJn3oa
 PRINT
