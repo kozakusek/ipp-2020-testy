@@ -1,0 +1,5 @@
+# test ASCII
+ADD 🍆 a
+ADD πœę©ß←↓→óþąśðæŋ’ə…łżźć„”ńµ
+ADD chrząszcz Jacek Apollo
+# ten komentarz nie powinien wywalać ĄĘĄĘĄĘĄĘ
