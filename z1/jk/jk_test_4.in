@@ -1,0 +1,12 @@
+######################## A lot of
+############# comments
+###### and 
+### stars
+# test
+ADD # # #
+ADD # * *##*#
+CHECK # *   *##*#                       
+   #  #  #
+DEL # #
+DEL # *
+CHECK    #   *   *##*#
