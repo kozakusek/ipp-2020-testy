@@ -1,0 +1,4 @@
+# komentarz nie na początku -> error
+ #
+# wiersz z białymi znakami i EOF -> brak errora
+    

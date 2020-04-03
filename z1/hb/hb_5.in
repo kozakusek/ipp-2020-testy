@@ -2,4 +2,9 @@
 ADD 🍆 a
 ADD πœę©ß←↓→óþąśðæŋ’ə…łżźć„”ńµ
 ADD chrząszcz Jacek Apollo
-# ten komentarz nie powinien wywalać ĄĘĄĘĄĘĄĘ
+PRINT
+PRINT chrząszcz
+CHECK πœę©ß←↓→óþąśðæŋ’ə…łżźć„”ńµ
+CHECK * * Apollo
+DEL πœę©ß←↓→óþąśðæŋ’ə…łżźć„”ńµ
+PRINT
