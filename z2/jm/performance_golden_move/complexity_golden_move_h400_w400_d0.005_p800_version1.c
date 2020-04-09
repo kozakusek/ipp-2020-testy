@@ -4748,5 +4748,7 @@ assert( gamma_golden_move(board, 798, 149, 114) == 0 );
 assert( gamma_golden_move(board, 799, 271, 397) == 0 );
 assert( gamma_golden_move(board, 800, 225, 300) == 0 );
 
+gamma_delete(board);
+
     return 0;
 }
