@@ -39,14 +39,44 @@ function run_test(){
     cmake -d cmake -D CMAKE_BUILD_TYPE=Debug .. > /dev/null && make >/dev/null 2>/dev/null
     #cmake -d cmake -D CMAKE_BUILD_TYPE=Debug .. > /dev/null && make
 
+    printf "$test_str" | ./gamma > /dev/null 2> /dev/null
+    gamma_exit_code=$?
+    printf "$test_str" | $VALGRIND --error-exitcode=42 --log-file=valgrind_out ./gamma > /dev/null
+    valgrind_exit_code=$?
+
+    printf "Test: "
     echo "$test_str"
-    echo
+    echo "NULL po $max_allocs alokacjach"
+    if [ "$valgrind_exit_code" -eq "42" ] 
+    then
+        echo "ERROR blad pamieci valgrinda"
+        cat valgrind_out
+    else
+        echo "PAMIEC OK"
+    fi
+
+    if [ "$should_fail" -eq "2" ] 
+    then  # czyli nie wiadomo czy ma byc fail czy nie, zalezy od implementacji
+        echo "KOD PROGRAMU ZALEZNY OD IMPLEMENTACJI"
+        echo
+        return
+    fi
 
     if [ "$should_fail" -eq "0" ] 
     then
-        printf "$test_str" | $VALGRIND ./gamma > /dev/null && echo "OK" || echo "ERROR"
+        if [ "$gamma_exit_code" -eq "0" ] 
+        then
+            echo "KOD PROGRAMU OK"
+        else
+            echo "KOD GAMMA BLEDNY"
+        fi
     else
-        printf "$test_str" | $VALGRIND ./gamma > /dev/null  && echo "ERROR" || echo "OK"
+        if [ "$gamma_exit_code" -eq "0" ] 
+        then
+            echo "KOD GAMMA BLEDNY"
+        else
+            echo "KOD PROGRAMU OK"
+        fi
     fi
     echo
 }
@@ -66,3 +96,25 @@ run_test "B 1 1 1 1\np\n" 7 100000000 0
 run_test "B 1 0 1 1\nB 0 1 1 1\nB 1 1 0 1\nB 1 1 1 0\n" 7 100000000 0
 run_test "B 1 1 1 1\np\n" 7 100000000 0
 run_test "B 5 5 5 1\np\n\np\n\np\n\np\n\np\n\np\n\np\n\np\n\np\np\np\np\np\np\np\np\np\n" 5 100000000 1
+
+run_test "B 2 2 2 1\np\np\np\n" 0 100000000 1
+run_test "B 2 2 2 1\np\np\np\n" 1 100000000 1
+run_test "B 2 2 2 1\np\np\np\n" 3 100000000 1
+run_test "B 2 2 2 1\np\np\np\n" 4 100000000 1
+run_test "B 2 2 2 1\np\np\np\n" 5 100000000 1
+run_test "B 2 2 2 1\np\np\np\n" 6 100000000 1
+run_test "B 2 2 2 1\np\np\np\n" 7 100000000 1
+run_test "B 2 2 2 1\np\np\np\n" 8 100000000 0
+run_test "B 2 2 2 1\np\np\np\n" 9 100000000 0
+
+run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 0 100000000 1
+run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 1 100000000 1
+run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 2 100000000 2
+run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 3 100000000 2
+run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 5 100000000 0
+
+run_test "I 0 2 2 1\n" 0 100000000 2
+run_test "I 0 2 2 1\n" 1 100000000 0
+run_test "I 1 1 1 1\n" 1 100000000 2
+run_test "I 1 1 1 1\n" 2 100000000 0
+run_test "I 1 1 1 1\n" 3 100000000 0
