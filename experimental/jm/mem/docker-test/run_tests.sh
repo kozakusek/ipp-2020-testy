@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VALGRIND="valgrind "
+VALGRIND="valgrind --log-file=valgrind_out "
 
 function run_test(){
     test_str="$1"
@@ -41,7 +41,7 @@ function run_test(){
 
     printf "$test_str" | ./gamma > /dev/null 2> /dev/null
     gamma_exit_code=$?
-    printf "$test_str" | $VALGRIND --error-exitcode=42 --log-file=valgrind_out ./gamma > /dev/null
+    printf "$test_str" | $VALGRIND --error-exitcode=42 ./gamma > /dev/null 2> /dev/null
     valgrind_exit_code=$?
 
     printf "Test: "
@@ -88,9 +88,7 @@ cd test_gamma/src
 sed -i 's/main/original_main/g' gamma_main.c
 cp gamma_main.c original_gamma_main.c
 
-printf "\nTesty wywalajace malloca, jezeli nie ma outputu to znaczy ze wszystko dobrze\n"
-
-printf "\nTesty na max 7 alokacji\n\n"
+printf "\nTesty wywalajace malloca, jezeli nie ma outputu to znaczy ze wszystko dobrze\n\n\n"
 
 run_test "B 1 1 1 1\np\n" 7 100000000 0
 run_test "B 1 0 1 1\nB 0 1 1 1\nB 1 1 0 1\nB 1 1 1 0\n" 7 100000000 0
@@ -116,5 +114,7 @@ run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeee
 run_test "I 0 2 2 1\n" 0 100000000 2
 run_test "I 0 2 2 1\n" 1 100000000 0
 run_test "I 1 1 1 1\n" 1 100000000 2
-run_test "I 1 1 1 1\n" 2 100000000 0
-run_test "I 1 1 1 1\n" 3 100000000 0
+run_test "I 1 1 1 1\n" 2 100000000 2
+run_test "I 1 1 1 1\n" 3 100000000 2
+run_test "I 1 1 1 1\n" 4 100000000 2
+run_test "I 1 1 1 1\n" 5 100000000 0
