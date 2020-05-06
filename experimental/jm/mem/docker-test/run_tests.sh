@@ -33,11 +33,12 @@ function run_test(){
     sed -i 's/MAX_MEMORY_ALLOCATED/'"$max_mem"'/g' remalloc.c
     
     cd ..
-    sed -i 's/(SOURCE_FILES/(SOURCE_FILES src\/remalloc.h src\/remalloc.c/g' CMakeLists.txt
+    perl -p -e 's/\(SOURCE_FILES[\s\n]/\(SOURCE_FILES src\/remalloc.h src\/remalloc.c\n/' CMakeLists.txt > temp 
+    cat temp > CMakeLists.txt
 
     mkdir -p debug && cd debug
-    cmake -d cmake -D CMAKE_BUILD_TYPE=Debug .. > /dev/null && make >/dev/null 2>/dev/null
-    #cmake -d cmake -D CMAKE_BUILD_TYPE=Debug .. > /dev/null && make
+    cmake -D CMAKE_BUILD_TYPE=Debug .. > /dev/null && make >/dev/null 2>/dev/null
+    #cmake -D CMAKE_BUILD_TYPE=Debug .. > /dev/null && make
 
     printf "$test_str" | ./gamma > /dev/null 2> /dev/null
     gamma_exit_code=$?
@@ -57,7 +58,7 @@ function run_test(){
 
     if [ "$should_fail" -eq "2" ] 
     then  # czyli nie wiadomo czy ma byc fail czy nie, zalezy od implementacji
-        echo "KOD PROGRAMU ZALEZNY OD IMPLEMENTACJI"
+        echo "KOD PROGRAMU ZALEZNY OD IMPLEMENTACJI: jest $gamma_exit_code, oczekiwany ?"
         echo
         return
     fi
@@ -66,16 +67,16 @@ function run_test(){
     then
         if [ "$gamma_exit_code" -eq "0" ] 
         then
-            echo "KOD PROGRAMU OK"
+            echo "KOD PROGRAMU OK: jest $gamma_exit_code, oczekiwany 0"
         else
-            echo "KOD GAMMA BLEDNY"
+            echo "KOD GAMMA BLEDNY: jest $gamma_exit_code, oczekiwany 0"
         fi
     else
         if [ "$gamma_exit_code" -eq "0" ] 
         then
-            echo "KOD GAMMA BLEDNY"
+            echo "KOD GAMMA BLEDNY: jest $gamma_exit_code, oczekiwany 1"
         else
-            echo "KOD PROGRAMU OK"
+            echo "KOD PROGRAMU OK: jest $gamma_exit_code, oczekiwany 1"
         fi
     fi
     echo

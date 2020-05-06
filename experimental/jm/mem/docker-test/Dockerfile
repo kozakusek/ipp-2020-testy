@@ -6,8 +6,7 @@ RUN poldek --shcmd="install cmake"
 RUN poldek --shcmd="install valgrind"
 RUN poldek --shcmd="install glibc-devel"
 RUN poldek --shcmd="install diffutils"
-RUN poldek --shcmd="install graphviz"
-RUN poldek --shcmd="install doxygen"
+RUN poldek --shcmd="install perl"
 
 COPY gamma/ part2/gamma/
 COPY entrypoint.sh part2/entrypoint.sh
