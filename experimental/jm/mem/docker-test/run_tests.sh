@@ -94,23 +94,24 @@ printf "\nTesty wywalajace malloca, jezeli nie ma outputu to znaczy ze wszystko 
 run_test "B 1 1 1 1\np\n" 7 100000000 0
 run_test "B 1 0 1 1\nB 0 1 1 1\nB 1 1 0 1\nB 1 1 1 0\n" 7 100000000 0
 run_test "B 1 1 1 1\np\n" 7 100000000 0
-run_test "B 5 5 5 1\np\n\np\n\np\n\np\n\np\n\np\n\np\n\np\n\np\np\np\np\np\np\np\np\np\n" 5 100000000 1
+run_test "B 5 5 5 1\np\n\np\n\np\n\np\n\np\n\np\n\np\n\np\n\np\np\np\np\np\np\np\np\np\n" 10 100000000 1
 
-run_test "B 2 2 2 1\np\np\np\n" 0 100000000 1
-run_test "B 2 2 2 1\np\np\np\n" 1 100000000 1
-run_test "B 2 2 2 1\np\np\np\n" 3 100000000 1
-run_test "B 2 2 2 1\np\np\np\n" 4 100000000 1
-run_test "B 2 2 2 1\np\np\np\n" 5 100000000 1
-run_test "B 2 2 2 1\np\np\np\n" 6 100000000 1
-run_test "B 2 2 2 1\np\np\np\n" 7 100000000 1
-run_test "B 2 2 2 1\np\np\np\n" 8 100000000 0
+run_test "B 2 2 2 1\np\np\np\n" 0 100000000 0
+run_test "B 2 2 2 1\np\np\np\n" 1 100000000 0
+run_test "B 2 2 2 1\np\np\np\n" 3 100000000 0
+run_test "B 2 2 2 1\np\np\np\n" 4 100000000 2
+run_test "B 2 2 2 1\np\np\np\n" 5 100000000 2
+run_test "B 2 2 2 1\np\np\np\n" 6 100000000 2
+run_test "B 2 2 2 1\np\np\np\n" 7 100000000 2
+run_test "B 2 2 2 1\np\np\np\n" 8 100000000 2
 run_test "B 2 2 2 1\np\np\np\n" 9 100000000 0
+run_test "B 2 2 2 1\np\np\np\n" 10 100000000 0
 
-run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 0 100000000 1
-run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 1 100000000 1
-run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 2 100000000 2
-run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 3 100000000 2
-run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 5 100000000 0
+run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 0 100000000 0
+run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 1 100000000 0
+run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 2 100000000 2
+run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 3 100000000 2
+run_test "B 2 0 2 1\nB -2 2 2 1\nB 2 2 -2 1\nB 2 2 r\nB eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee 2 2 1\nB 2 2 1\nB 2c 2 2 1\nB 1 1 2 1\np\n" 6 100000000 0
 
 run_test "I 0 2 2 1\n" 0 100000000 2
 run_test "I 0 2 2 1\n" 1 100000000 0
@@ -118,4 +119,5 @@ run_test "I 1 1 1 1\n" 1 100000000 2
 run_test "I 1 1 1 1\n" 2 100000000 2
 run_test "I 1 1 1 1\n" 3 100000000 2
 run_test "I 1 1 1 1\n" 4 100000000 2
-run_test "I 1 1 1 1\n" 5 100000000 0
+run_test "I 1 1 1 1\n" 5 100000000 2
+run_test "I 1 1 1 1\n" 6 100000000 0
