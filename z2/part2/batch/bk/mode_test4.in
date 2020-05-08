@@ -1,3 +1,4 @@
+# Generalnie test jest dobry, ale znaczek w 7 linijce masakruje getc
  Á 10 20 3 4
 ì 1 2 3
 ì 2 3 3
