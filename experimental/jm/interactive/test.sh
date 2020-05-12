@@ -77,7 +77,7 @@ function run_test() {
 cd "$project"
 mkdir -p debug
 cd debug
-cmake CMAKE_BUILD_TYPE="Debug" . >/dev/null
+cmake -D CMAKE_BUILD_TYPE="Debug" .. >/dev/null
 make >/dev/null
 
 temp_out=$(mktemp)
