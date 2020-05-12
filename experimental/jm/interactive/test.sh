@@ -1,5 +1,4 @@
 #!/bin/bash
-# jeżeli wynik testu jest niepoprawny pamięć nie jest testowana
 
 # przykladowe wywolanie
 # ./testivm.local ~/dv/ipp/ipp-duze-sprawdzarka/src/out/generated_interactive/ ~/dv/ipp/IPP-jm419502 ~/dv/ipp/ipp-duze-sprawdzarka/src
