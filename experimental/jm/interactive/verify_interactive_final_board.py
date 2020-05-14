@@ -34,9 +34,6 @@ def normalize_naive(raw_result: str) -> str:
         .replace(b"\33[0m", b"")
         .replace(b"\33[?25h", b"")
         .replace(b"\33[2j", b"")
-		.replace(b"\33[K", b"") #New line
-		.replace(b"\33[7m", b"") #Reverse coloring
-		.replace(b"\33[0m", b"") #Clear coloring
         .replace(b"\33[H", b"")
         .replace(b"\33[30;47m", b"")
         .replace(b"\33[K", b"")
