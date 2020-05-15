@@ -350,10 +350,10 @@ if __name__ == "__main__":
         print(__doc__)
         exit(0)
 
-    no_wait = len(sys.argv) > 1 and any("nowait" in p.lower() for p in sys.argv[1:])
-    debug = len(sys.argv) > 1 and any("debug" in p.lower() for p in sys.argv[1:])
+    no_wait = len(sys.argv) > 1 and any("--nowait" in p.lower() for p in sys.argv[1:])
+    debug = len(sys.argv) > 1 and any("--debug" in p.lower() for p in sys.argv[1:])
     compile_only = len(sys.argv) > 1 and any(
-        "compile-only" in p.lower() for p in sys.argv[1:]
+        "--compile-only" in p.lower() for p in sys.argv[1:]
     )
 
     main(debug, no_wait, compile_only)
